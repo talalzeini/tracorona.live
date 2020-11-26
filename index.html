@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Tracker</title>
+    <!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"></
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+<link rel="stylesheet" href="talalzeini.com/zeini-elzeini-talal-talalelzeini-talalzeini/"> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+</head>
+<body id='body'>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <div class="navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+      <div class="card-deck w-75 m-auto d-{block}" style='text-align:center;color:white;'>
+        <div class="card" style='border-radius:20px;background-color: green;'>
+          <div class="card-body">
+            <h5 class="card-title">CASES</h5>
+            <p id='totalCases' class="card-text font-weight-bold"></p>
+          </div>
+        </div>
+        <div class="card" style='border-radius:20px;background-color: red;'>
+          <div class="card-body">
+            <h5 class="card-title">DEATHS</h5>
+            <p id='totalDeaths' class="card-text font-weight-bold"></p>
+          </div>
+        </div>
+        <div class="card" style='border-radius:20px;background-color: blue;'>
+          <div class="card-body">
+            <h5 class="card-title">RECOVERED</h5>
+            <p id='totalRecovered' class="card-text font-weight-bold"></p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card-deck w-75 m-auto d-{block}" style='text-align:center;color:white;'>
+        <div class="card" style='border-radius:20px;background-color: orange;cursor:pointer;'>
+          <div class="card-body">
+            <h5 class="card-title">CRITICAL</h5>
+            <p id='totalCritical' class="card-text font-weight-bold"></p>
+          </div>
+        </div>
+        <div class="card" style='border-radius:20px;background-color: #fada5e;;'>
+          <div class="card-body">
+            <h5 class="card-title">ACTIVE</h5>
+            <p id='totalActive' class="card-text font-weight-bold"></p>
+          </div>
+        </div>
+        <div class="card" style='border-radius:20px;background-color: cyan'>
+          <div class="card-body">
+            <h5 class="card-title">TESTS</h5>
+            <p id='totalTests' class="card-text font-weight-bold"></p>
+          </div>
+        </div>
+      </div>
+
+     
+    <table id='table' style='margin-left:auto; margin-right:auto; margin-top:50px;'>
+        <tr style='font-size:12px;'>
+          <th>NAME </th>
+          <th>CASES <i style='font-size:13px;' id='casesDown' class="fas fa-arrow-alt-circle-down"></i></th>
+          <th>DEATHS <i style='font-size:13px;' id='casesDown' class="fas fa-arrow-alt-circle-down"></i></th>
+          <th>RECOVERED <i style='font-size:13px;' id='casesDown' class="fas fa-arrow-alt-circle-down"></i></th>
+          <th>CRITICAL <i style='font-size:13px;' id='casesDown' class="fas fa-arrow-alt-circle-down"></i></th>
+          <th>ACTIVE <i style='font-size:13px;' id='casesDown' class="fas fa-arrow-alt-circle-down"></i></th>
+        </tr>   
+        <tr id='worldData'>
+        </tr>
+      </table>
+
+      <div style='text-align:center;margin-left:auto; margin-right:auto; ' id="piechart"></div>
+</body>
+<style>
+.card-text{
+    font-size:30px
+}
+body{
+    font-family: "Avenir";
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 50%;
+  border:2px solid black;
+}
+.hide{
+    display:none;
+}
+td, th {
+  border:2px solid black;
+  border-right:none;
+  border-left:1px solid #dddddd;
+  text-align: center;
+  padding:8px;
+}
+td{
+    font-weight: bold;
+    font-size:15px;
+}
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+   
+    function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+var countriesURL = "https://corona.lmao.ninja/v3/covid-19/countries"
+var worldURL = "https://corona.lmao.ninja/v3/covid-19/all"
+
+    $(document).ready(function(){
+        init()
+        function init(){
+            getWorldData()
+            function getWorldData(){
+                $.get(worldURL, function(worldData){
+                    document.getElementById('worldData').innerHTML += "<td style='text-align:left;'> WORLD </td><td style='color:green'>" + numberWithCommas(worldData.cases) + "</td><td style='color:red'>" + numberWithCommas(worldData.deaths) + "</td><td style='color:blue;'>" + numberWithCommas(worldData.recovered) + "</td><td style='color:orange;'>" + numberWithCommas(worldData.critical) + "</td><td style='color:#fada5e;'>" + numberWithCommas(worldData.active) + "</td>"
+                    document.getElementById('totalCases').innerText = numberWithCommas(worldData.cases)
+                    document.getElementById('totalDeaths').innerText = numberWithCommas(worldData.deaths)
+                    document.getElementById('totalRecovered').innerText = numberWithCommas(worldData.recovered)
+                    document.getElementById('totalCritical').innerText = numberWithCommas(worldData.critical)
+                    document.getElementById('totalActive').innerText = numberWithCommas(worldData.active)
+                    document.getElementById('totalTests').innerText = numberWithCommas(worldData.tests)
+                })
+            } 
+            
+            $.get(countriesURL, function(countryData){
+                var numberOfCountries = countryData.length
+                console.log(countryData)
+                for (let i = 0; i < numberOfCountries; i++) {
+                    for (let j = 1; j < numberOfCountries-1; j++) {
+                        if (countryData[j].cases > countryData[j - 1].cases) {
+                            let tmp = countryData[j - 1];
+                            countryData[j - 1] = countryData[j];
+                            countryData[j] = tmp;
+                        }
+                    }
+            }
+                for(let i = 0; i < numberOfCountries-200; i++){
+                    var countryDataSetup = "<tr class='talal'><td style='text-align:left;' onclick='console.log(countryData.indexOf(countryData[i].country))'>" + countryData[i].country  + "</td><td style='color:green'>" + numberWithCommas(countryData[i].cases) + "</td><td style='color:red'>" + numberWithCommas(countryData[i].deaths) + "</td><td style='color:blue;'>" + numberWithCommas(countryData[i].recovered) + "</td><td style='color:orange;'>" + numberWithCommas(countryData[i].critical) + "</td><td style='color:#fada5e;'>" + numberWithCommas(countryData[i].active)    + "</td></tr>"
+                    document.getElementById('table').innerHTML += countryDataSetup
+                    if (i % 2 == 0){
+                        document.getElementsByClassName('talal')[i].style.backgroundColor = "#eee"
+                    }
+                }
+            })
+            
+}
+})
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+
+
+// Draw the chart and set the chart values
+
+$.get(countriesURL, function(countryData){
+  
+  google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+
+  console.log(countryData[207].country)
+  var data = google.visualization.arrayToDataTable([
+  ['Data', 'Number'],
+  ['Deaths', countryData[207].deaths],
+  ['Recovered', countryData[207].recovered],
+  ['Active', countryData[207].active],
+  ['Critical', countryData[207].critical]])
+  var options = {'title':countryData[207].country + " " + numberWithCommas(countryData[207].cases) + " cases.", 'width':550, 'height':400};
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+chart.draw(data, options);
+}
+ 
+// Display the chart inside the <div> element with id="piechart"
+
+});
+
+
+</script>
+</html>
