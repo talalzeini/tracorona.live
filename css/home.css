@@ -1,0 +1,51 @@
+
+html {
+  overflow: -moz-scrollbars-vertical; 
+  overflow-y: scroll;
+}
+.card-text{
+    font-size:30px
+}
+body{
+    font-family: "Avenir";
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  border:2px solid black;
+}
+.hide{
+   display: none;
+   margin-top:50px;
+}
+td, th {
+  border:2px solid black;
+  border-right:none;
+  border-left:1px solid #dddddd;
+  text-align: center;
+  padding:8px;
+}
+td{
+    font-weight: bold;
+    font-size:15px;
+}
+
+
+.fadeIn{
+  animation: fadeIn 3s;
+}
+.fadeOut{
+  animation: fadeOut 3s;
+}
+
+.chartDiv{
+  width:75%;
+}
+
+@media screen and (max-width: 750px) {
+  
+  .chartDiv{
+    width:100%;
+  }
+  
+}
