@@ -1,5 +1,4 @@
-                                  
-  (function () {
+(function () {
     navigator.geolocation.getCurrentPosition(function (position) {
             getUserAddressBy(position.coords.latitude, position.coords.longitude)
         },
@@ -12,7 +11,8 @@
         xhttp.onreadystatechange = function (results) {
             if (this.readyState == 4 && this.status == 200) {
                 var address = JSON.parse(this.responseText)
-                nextStep(address.results[0].formatted);
+        
+                nextStep(address);
           
             }
         };
@@ -22,7 +22,7 @@
 
 })();
 function nextStep(address){
-    console.log(address.split(", ")[3])
+    console.log(address.results[0].formatted.split(", ")[3])
 
-    document.getElementById('location').innerHTML += "<h1>" + address.split(", ")[3] + "</h1>"
+    document.getElementById('location').innerHTML += "<h1>" + address.results[0].formatted.split(", ")[3] + "</h1>"
 }
