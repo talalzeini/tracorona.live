@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>error</title>
-    <link rel="stylesheet" href="../css/error.css">
-</head>
-<body>
-  <h1>ERROR 404</h1>
-  <p>sorry for the inconvience but the site is currently under maintainance please try again later </p>
-
-  <a href="" class="previous">&laquo;  Previous Page</a>
-    
-</body>
-
+<html>
+    <head>
+        <title>Under Maintenance</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="../css/error.css">
+        <link rel="stylesheet" href="../css/navbar.css">
+    </head>
+    <body>
+      <div class="main-navbar">
+        <a href="./index.html"><button id='recording' class='recording'></button> TRACORONA.LIVE</a> 
+        <a href="./html/vaccines.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a> 
+        <a href="./html/maps.html"><i class="fas fa-fw fa-map-marked-alt"></i> Maps</a> 
+        <a href="./html/charts.html" window.href.onclick='goToCharts()'><i class="fas fa-fw fa-chart-line"></i> Charts</a>
+        <a>
+          <div id='loadingDiv' class='hide'>
+                    <div id='loader' class='loader'></div>
+          </div>
+          <div id='location' style='color:white;'>
+          </div>
+        
+        </a>
+        <a style='float:right; color:white;' id='updatedAgo'></a>
+      </div>
+        <article>
+            <h1>Site is temporarily unavailable.</h1>
+            <p>Our website is currently under maintenance. We apologize for the inconvenience caused and encourage you to check back with us again shortly.</p>
+        </article>
+    </body>
 </html>

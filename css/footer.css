@@ -1,0 +1,21 @@
+
+#footer-stuff a {
+    color:white;
+    display: block;
+    font-size:15px;
+  }
+  
+  #footer-info a {
+    display: block;
+    color:white;
+  }
+  @media (max-width:700px){
+  #footer-stuff {
+    text-align: left;
+  }
+  #footer-stuff a {
+    color:white;
+    display: block;
+    text-align: left;
+  }
+}

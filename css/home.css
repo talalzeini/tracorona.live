@@ -4,17 +4,46 @@ html {
   overflow-y: scroll;
 }
 
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  font-family: "Avenir";
+}
+
 .card-text{
     font-size:30px
 }
-body{
-    font-family: "Avenir";
+
+.outter {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-table {
-  border-spacing: 0;
+
+.content {
+  height: calc(100% - 3em);  /* adjusted */
+}
+
+
+.tableClass {
+  margin: 10px;
+/* adjusted */
+  border: 2px solid;
   border-collapse: collapse;
-  border:2px solid black;
+  border-spacing: 0;
 }
+
+.tableClass th,
+.tableClass td{
+    border: 1px solid black;
+}
+
+
+
+
+
 .hide{
    display: none;
    margin-top:50px;
@@ -24,11 +53,11 @@ td, th {
   border-right:none;
   border-left:1px solid #dddddd;
   text-align: center;
-  padding:8px;
+ 
 }
 td{
     font-weight: bold;
-    font-size:15px;
+    font-size:10px;
 }
 
 
@@ -57,24 +86,4 @@ td{
   color:white;
   background: black;
   transition:0.5s;
-}
-
-#footer-stuff a {
-  color:white;
-  display: block;
-  font-size:15px;
-}
-
-#footer-info a {
-  display: block;
-  color:white;
-}
-@media (max-width:700px){
-#footer-stuff {
-  text-align: left;
-}
-#footer-stuff a {
-  color:white;
-  display: block;
-  text-align: left;
 }
