@@ -2,6 +2,9 @@
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+var countriesURL = "https://corona.lmao.ninja/v3/covid-19/countries"
+var worldURL = "https://corona.lmao.ninja/v3/covid-19/all"
+var unitedStatesURL = 'https://corona.lmao.ninja/v2/states'
 function sortByCases(numberOfCountries, countryData){
         for (let i = 0; i < numberOfCountries; i++) {
             for (let j = 1; j < numberOfCountries-1; j++) {
@@ -22,14 +25,21 @@ function displayData(numberOfCountries, countryData){
         }
     }
 }
-function checkCountry(country, statesTableHeader){
+function checkCountry(country, statesTableHeader, countryData){
     if(country == "USA"){
         $('#table').fadeOut(1000);
         setTimeout(function() { document.getElementById('table').innerHTML = "" }, 1000);
-        setTimeout(function() { $('#spinDiv').removeClass("hide"); }, 1000);
-        $('#spinDiv').addClass("fadeIn");
+        setTimeout(function() { $('#loadingDiv').removeClass("hide"); }, 1000);
+        $('#loadingDiv').addClass("fadeIn");
         var statesTableHeader = "<tr style='font-size:12px;'><th>STATE</th><th>CASES <i style='font-size:13px;' id='casesDown' class='fas fa-arrow-alt-circle-down'></i></th><th>DEATHS <i style='font-size:13px;' id='casesDown' class='fas fa-arrow-alt-circle-down'></i></th><th>RECOVERED <i style='font-size:13px;' id='casesDown' class='fas fa-arrow-alt-circle-down'></i></th><th>ACTIVE <i style='font-size:13px;' id='casesDown' class='fas fa-arrow-alt-circle-down'></i></th></tr>"
         setTimeout(function() { getStatesData(statesTableHeader); }, 3000);
+    }else{
+        $.get(countriesURL +  "/" + country, function(countryData){
+            console.log(countryData)
+            localStorage.removeItem("countryData", JSON.stringify(countryData));
+            localStorage.setItem("countryData", JSON.stringify(countryData));
+            window.location = "../html/charts.html"
+        })
     }
 }
 function getWorldData(){

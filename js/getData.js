@@ -20,9 +20,9 @@ $(document).ready(function(){
 
 function getStatesData(statesTableHeader){
     $.get(unitedStatesURL, function(statesData){
-        $('#spinDiv').fadeOut(3000);
+        $('#loadingDiv').fadeOut(3000);
         $('#table').fadeIn(3000);
-        setTimeout(function() { $('#spinDiv').addClass("hide"); }, 3000);
+        setTimeout(function() { $('#loadingDiv').addClass("hide"); }, 3000);
         var numberOfStates = statesData.length
         document.getElementById('table').innerHTML += statesTableHeader
         for(let j = 0; j < numberOfStates; j++){
@@ -37,25 +37,25 @@ function getStatesData(statesTableHeader){
 
 // Load google charts
 
-$.get(countriesURL, function(countryData){
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-function drawChart() {
-  sortByCases(countryData.length, countryData)
-  var data = google.visualization.arrayToDataTable([
-  ['Data', 'Number'],
-  ['Deaths', countryData[0].deaths],
-  ['Recovered', countryData[0].recovered],
-  ['Critical', countryData[0].critical],
-  ['Active', countryData[0].active]])
+// $.get(countriesURL, function(countryData){
+// google.charts.load('current', {'packages':['corechart']});
+// google.charts.setOnLoadCallback(drawChart);
+// function drawChart() {
+//   sortByCases(countryData.length, countryData)
+//   var data = google.visualization.arrayToDataTable([
+//   ['Data', 'Number'],
+//   ['Deaths', countryData[0].deaths],
+//   ['Recovered', countryData[0].recovered],
+//   ['Critical', countryData[0].critical],
+//   ['Active', countryData[0].active]])
   
-  var options = {'title':countryData[0].country + " " + numberWithCommas(countryData[0].cases) + " cases.", 'width':550, 'height':400, 'slices': {0: {color:'red'}, 1: {color:'green'}, 2:{color:'orange'}, 3:{color:'yellow'}}};
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-chart.draw(data, options);
-}
+//   var options = {'title':countryData[0].country + " " + numberWithCommas(countryData[0].cases) + " cases.", 'width':550, 'height':400, 'slices': {0: {color:'red'}, 1: {color:'green'}, 2:{color:'orange'}, 3:{color:'yellow'}}};
+//   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+// chart.draw(data, options);
+// }
  
-// Display the chart inside the <div> element with id="piechart"
+// // Display the chart inside the <div> element with id="piechart"
 
-});
+// });
 
 

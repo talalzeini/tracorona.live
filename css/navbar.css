@@ -12,18 +12,15 @@
     text-decoration: none;
     font-size: 17px;
     color:white;
+    transition:0.25s;
   }
-  
   .main-navbar a:hover {
-    background-color: #000;
-  }
-  
-  .main-navbar a .active {
-    background-color: white;
-    color:black;
+    color:rgb(220, 220, 220);
+    transition:0.25s;
   }
   
   @media screen and (max-width: 500px) {
+  
     .main-navbar a {
       float: none;
       display: block;
@@ -46,7 +43,7 @@
 	animation-timing-function: linear;
 }
 
-.spinner{
+.loader{
     content: '';
     box-sizing: border-box;
     position: relative;
@@ -56,6 +53,7 @@
     display:block;
     border-radius: 50%;
     border: 3px solid #ccc;
-    border-top-color: #000;
-    animation: spinner 0.7s linear infinite;
+    border-top-color: white; 
+    /* white or black both work fine */
+    animation: loading 0.7s linear infinite;
   }

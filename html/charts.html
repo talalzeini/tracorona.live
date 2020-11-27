@@ -3,9 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title id='pageTitle'></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"></
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+<link rel="stylesheet" href="../css/home.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js'> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>CHARTS</h1>
-</body>
+    <div class="main-navbar">
+        <a href="../index.html"><button id='recording' class='recording'></button> TRACORONA.LIVE</a> 
+        <a href="../html/vaccines.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a> 
+        <a href="../html/maps.html"><i class="fas fa-fw fa-map-marked-alt"></i> Maps</a> 
+        <a href="../html/charts.html" onclick='goToCharts()'><i class="fas fa-fw fa-chart-line"></i> Charts</a>
+        <a>
+          <div id='loadingDiv' class='hide'>
+                    <div id='loader' class='loader'></div>
+          </div>
+        </a>
+      </div>
+      <div STYLE='text-align: center;' class="mb-5">
+        <h1 id='countryID'></h1>
+        <h5 id='population'></h5>
+      </div>
+    <div class='chartDiv' style='margin: 0 auto; display:block'> 
+<canvas id="myChart"></canvas>
+</div>
+
+<script>
+
+
+
+$(document).ready(function(){
+        init()
+        function init(){
+        getChart()
+}
+})
+
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+function getChart(){
+if(localStorage.length !== 0){ // if local storage is not empty
+    console.log("LOCAL STORAGE IS NOT EMPTY")
+    var countryRetrieved = localStorage.getItem("countryData");
+    var countryChosen = JSON.parse(countryRetrieved);
+    document.getElementById('countryID').innerHTML = countryChosen.country
+    document.getElementById('pageTitle').innerHTML = countryChosen.country
+    document.getElementById('population').innerHTML = "POPULATION : " + numberWithCommas(countryChosen.population)
+    runIt(countryChosen)
+}else{
+    console.log("LOCAL STORAGE IS EMPTY")
+    URL = "https://corona.lmao.ninja/v3/covid-19/all"
+    document.getElementById('countryID').innerHTML = "World"
+    document.getElementById('pageTitle').innerHTML = "World"
+    $.get(URL, function(chosenData){
+        document.getElementById('population').innerHTML = "POPULATION : " + numberWithCommas(chosenData.population)
+        runIt(chosenData)
+    })
+}
+function runIt(data){
+var ctx = document.getElementById('myChart').getContext('2d');
+Chart.defaults.global.legend.display = false;
+var myChart = new Chart(ctx, {
+    type: 'bar',
+   
+    data: {
+        labels: ['Cases', 'Deaths', 'Recovered'],
+        datasets: [{
+            data: ["\t" + data.cases, "\t" + data.deaths, "\t" + data.recovered, "\t" + data.active],
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 3
+        }]
+        
+    },
+   
+    options: {
+        scaleLabel: function(label) {
+    return value.toLocaleString("en-US",{style:"currency", currency:"USD"});
+},    
+        scales: {
+            yAxes: [{
+                ticks: {
+                    callback: function(value, index, values) {
+                            if(parseInt(value) >= 1000){
+                               return '' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            } else {
+                               return '' + value;
+                            }
+                       } 
+        }
+            }],
+        
+
+        },tooltips: {
+          callbacks: {
+                label: function(tooltipItem, data) {
+                    var value = data.datasets[0].data[tooltipItem.index];
+                    if(parseInt(value) >= 1000){
+                               return '' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            } else {
+                               return '' + value;
+                            }
+                }
+          } // end callbacks:
+        },
+    }
+});
+
+}
+}
+
+
+
+
+
+       
+</script>
+<script>
+    function goToCharts(){
+      localStorage.clear()
+    }
+    
+</script>
 </html>

@@ -15,7 +15,7 @@
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"></
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
-<link rel="stylesheet" href="talalzeini.com/zeini-elzeini-talal-talalelzeini-talalzeini/"> 
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
 <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -29,13 +29,13 @@
 
 
   <div class="main-navbar">
-  <a href="#"><button id='recording' class='recording'></button> TRACORONA.LIVE</a> 
+  <a href="href="../index.html""><button id='recording' class='recording'></button> TRACORONA.LIVE</a> 
   <a href="../html/vaccines.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a> 
   <a href="../html/maps.html"><i class="fas fa-fw fa-map-marked-alt"></i> Maps</a> 
-  <a href="../html/charts.html"><i class="fas fa-fw fa-chart-line"></i> Charts</a>
+  <a href="../html/charts.html" window.href.onclick='goToCharts()'><i class="fas fa-fw fa-chart-line"></i> Charts</a>
   <a>
-    <div id='spinDiv' class='hide'>
-              <div id='mySpinner' class='spinner'></div>
+    <div id='loadingDiv' class='hide'>
+              <div id='loader' class='loader'></div>
     </div>
   </a>
 </div>
@@ -90,7 +90,7 @@
       </div>
 
      
-     
+  <div style='width:100%;'>
     <table id='table' style='margin-left:auto; margin-right:auto;  margin-top:50px;'>
         <tr style='font-size:12px;'>
           <th>NAME </th>
@@ -103,7 +103,7 @@
         <tr id='worldData'>
         </tr>
       </table>
-    
+    </div>
 
       <div style='text-align:center;margin-left:auto; margin-right:auto;display:none' id="piechart"></div>
 </body>
@@ -112,4 +112,10 @@
 <script src="../js/getData.js"></script>
 <script src="../js/helpers.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+function goToCharts(){
+  localStorage.clear()
+}
+
+</script>
 </html>
