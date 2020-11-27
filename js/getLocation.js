@@ -22,7 +22,8 @@
 
 })();
 function nextStep(address){
-    console.log(address.results[0].formatted.split(", ")[3])
+    console.log(address.results[0].formatted)
 
-    document.getElementById('location').innerHTML += "<h1>" + address.results[0].formatted.split(", ")[3] + "</h1>"
+    document.getElementById('location').innerHTML += "<h1>" + address.results[0].formatted + "</h1>"
 }
+     
