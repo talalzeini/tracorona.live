@@ -4,7 +4,6 @@ var countriesURL = "https://corona.lmao.ninja/v3/covid-19/countries"
 var worldURL = "https://corona.lmao.ninja/v3/covid-19/all"
 var unitedStatesURL = 'https://corona.lmao.ninja/v2/states'
 
-
 $(document).ready(function(){
         init()
         function init(){

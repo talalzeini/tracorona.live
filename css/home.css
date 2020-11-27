@@ -3,6 +3,7 @@ html {
   overflow: -moz-scrollbars-vertical; 
   overflow-y: scroll;
 }
+
 .card-text{
     font-size:30px
 }
@@ -48,4 +49,12 @@ td{
     width:100%;
   }
   
+}
+.countryButton{
+  transition:0.5s;
+}
+.countryButton:hover{
+  color:white;
+  background: black;
+  transition:0.5s;
 }

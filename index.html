@@ -20,27 +20,29 @@
 <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
-<link rel="stylesheet" href="../css/home.css">
-<link rel="stylesheet" href="../css/animations.css">
-<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="./css/home.css">
+<link rel="stylesheet" href="./css/animations.css">
+<link rel="stylesheet" href="./css/navbar.css">
 </head>
 <body id='body'>
 
 
 
   <div class="main-navbar">
-  <a href="href="../index.html""><button id='recording' class='recording'></button> TRACORONA.LIVE</a> 
-  <a href="../html/vaccines.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a> 
-  <a href="../html/maps.html"><i class="fas fa-fw fa-map-marked-alt"></i> Maps</a> 
-  <a href="../html/charts.html" window.href.onclick='goToCharts()'><i class="fas fa-fw fa-chart-line"></i> Charts</a>
+  <a href="./index.html"><button id='recording' class='recording'></button> TRACORONA.LIVE</a> 
+  <a href="./html/vaccines.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a> 
+  <a href="./html/maps.html"><i class="fas fa-fw fa-map-marked-alt"></i> Maps</a> 
+  <a href="./html/charts.html" window.href.onclick='goToCharts()'><i class="fas fa-fw fa-chart-line"></i> Charts</a>
   <a>
     <div id='loadingDiv' class='hide'>
               <div id='loader' class='loader'></div>
     </div>
   </a>
+  <a style='float:right; color:white;' id='updatedAgo'></a>
 </div>
+
             
-        <div STYLE='text-align: center;' class="mb-5">
+        <div STYLE='text-align: center;color:white;' class="mb-5">
           <h1> Coronavirus Tracker</h1>
           <h2>WEAR A MASK</h2>
         </div>
@@ -91,7 +93,7 @@
 
      
   <div style='width:100%;'>
-    <table id='table' style='margin-left:auto; margin-right:auto;  margin-top:50px;'>
+    <table id='table' style=' margin-left:auto; margin-right:auto;  margin-top:50px;'>
         <tr style='font-size:12px;'>
           <th>NAME </th>
           <th>CASES <i style='font-size:13px;' id='casesDown' class="fas fa-arrow-alt-circle-down"></i></th>
@@ -109,8 +111,9 @@
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="../js/getData.js"></script>
-<script src="../js/helpers.js"></script>
+<script src="./js/getData.js"></script>
+<script src="./js/helpers.js"></script>
+<script src="./js/getLocation.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
 function goToCharts(){
