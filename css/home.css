@@ -1,4 +1,8 @@
 
+html {
+  overflow: -moz-scrollbars-vertical; 
+  overflow-y: scroll;
+}
 .card-text{
     font-size:30px
 }
@@ -12,7 +16,8 @@ table {
   border:2px solid black;
 }
 .hide{
-    display:none;
+   display: none;
+   margin-top:50px;
 }
 td, th {
   border:2px solid black;
@@ -27,3 +32,9 @@ td{
 }
 
 
+.fadeIn{
+  animation: fadeIn 3s;
+}
+.fadeOut{
+  animation: fadeOut 3s;
+}
