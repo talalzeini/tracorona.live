@@ -24,50 +24,75 @@
 <link rel="stylesheet" href="./css/footer.css">
 <link rel="stylesheet" href="./css/animations.css">
 <link rel="stylesheet" href="./css/navbar.css">
+<link rel="stylesheet" href="./css/colors.css">
+<link rel="stylesheet" href="./css/mybootstrap.css">
+<link rel="stylesheet" href="./css/stats-table.css">
 </head>
 <body id='body'>
 
 
-<div style='margin-bottom: 150px;'> 
-  <div class="main-navbar">
-  <a href="./index.html"><button id='recording' class='recording'></button> TRACORONA.LIVE</a> 
-  <a href="./html/vaccines.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a> 
-  <a href="./html/maps.html"><i class="fas fa-fw fa-map-marked-alt"></i> Maps</a> 
-  <a href="./html/charts.html" window.href.onclick='goToCharts()'><i class="fas fa-fw fa-chart-line"></i> Charts</a>
-  <a>
-    <div id='loadingDiv' class='hide'>
-              <div id='loader' class='loader'></div>
-    </div>
-    <div id='location' style='color:white;'>
-    </div>
-  
-  </a>
-  <a style='float:right; color:white;' id='updatedAgo'></a>
-</div>
-</div>
       
 
-  <div STYLE='text-align: center;' class="mb-5">
+<!-- <div id='location' style='color:white;'>
+</div> -->
+
+
+<div>
+  <div class='header'>
+      <div class='header-top'>
+          <ul>
+        <li class='discountHeader'><a id='updatedAgo' class='last-day'></a></li>
+          </ul>
+      </div>
+              <div id='top-top-header'>
+                     
+                      <div>
+                              <ul>
+                                <li><a href="./html/vaccines.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a></li>
+                                <li><a href="./html/maps.html"><i class="fas fa-fw fa-map-marked-alt"></i> Maps</a></li> 
+                                <li><a href="./html/charts.html" window.href.onclick='goToCharts()'><i class="fas fa-fw fa-chart-line"></i> Charts</a></li>
+                                <div id='loadingDiv' class='hide'>
+                                  <div id='loader' class='loader'></div>
+                                </div>
+                              </ul>
+                      </div>
+              </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  <div style='text-align: center;color:white;' class="mt-100 mb-5">
           <h1> Coronavirus Tracker</h1>
           <h2>WEAR A MASK</h2>
-        </div>
+  </div>
 
       <div class="card-deck w-75 m-auto d-{block}" style='text-align:center;color:white;'>
-        <div class="card mb-3" style='border-radius:20px;background-color: blue;'>
+        <div class="card mb-3 blue" style='border-radius:20px;'>
           <div class="card-body">
             <h5 class="card-title">CASES</h5>
             <p id='totalCases' class="card-text font-weight-bold"></p>
           </div>
+       
+       
+       
+       
+       
         </div>
 
-        <div class="card mb-3" style='border-radius:20px;background-color: red;'>
+        <div class="card mb-3 red" style='border-radius:20px;'>
           <div class="card-body">
             <h5 class="card-title">DEATHS</h5>
             <p id='totalDeaths' class="card-text font-weight-bold"></p>
           </div>
         </div>
 
-        <div class="card mb-3" style='border-radius:20px;background-color: green;'>
+        <div class="card mb-3 green" style='border-radius:20px;'>
           <div class="card-body">
             <h5 class="card-title">RECOVERED</h5>
             <p id='totalRecovered' class="card-text font-weight-bold"></p>
@@ -76,19 +101,19 @@
       </div>
 
       <div class="card-deck w-75 m-auto d-{block}" style='text-align:center;color:white;'>
-        <div class="card" style='border-radius:20px;background-color: orange;cursor:pointer;'>
+        <div class="card orange" style='border-radius:20px;cursor:pointer;'>
           <div class="card-body">
             <h5 class="card-title">CRITICAL</h5>
             <p id='totalCritical' class="card-text font-weight-bold"></p>
           </div>
         </div>
-        <div class="card" style='border-radius:20px;background-color: #fada5e;;'>
+        <div class="card yellow" style='border-radius:20px;'>
           <div class="card-body">
             <h5 class="card-title">ACTIVE</h5>
             <p id='totalActive' class="card-text font-weight-bold"></p>
           </div>
         </div>
-        <div class="card" style='border-radius:20px;background-color: cyan'>
+        <div class="card cyan" style='border-radius:20px;'>
           <div class="card-body">
             <h5 class="card-title">TESTS</h5>
             <p id='totalTests' class="card-text font-weight-bold"></p>
@@ -98,10 +123,10 @@
 
 
 <!-- <i style='font-size:13px;' id='casesDown' class="fas fa-arrow-alt-circle-down"></i> -->
-<div class="outter">
-  <div class="content">
+<div class="outter mt-50">
+  <div class="content center">
     <table id='table' class="tableClass">
-        <tr style='font-size:8px;'>
+        <tr id='trtr'>
           <th>NAME </th>
           <th>CASES </th>
           <th>DEATHS </th>

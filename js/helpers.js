@@ -21,11 +21,8 @@ function sortByCases(numberOfCountries, countryData){
 }
 function displayData(numberOfCountries, countryData){
     for(let i = 0; i < numberOfCountries-210; i++){
-        var countryDataSetup = "<tr id='underTable' class='rowColorChange'><td class='countryButton' style='text-align:left;cursor:pointer;' onclick='checkCountry(this.innerText)'>" + countryData[i].country  + "</td><td style='color:blue'>" + numberWithCommas(countryData[i].cases) + "</td><td style='color:red'>" + numberWithCommas(countryData[i].deaths) + "</td><td style='color:green;'>" + numberWithCommas(countryData[i].recovered) + "</td><td style='color:orange;'>" + numberWithCommas(countryData[i].critical) + "</td><td style='color:#fada5e;'>" + numberWithCommas(countryData[i].active)    + "</td></tr>"
+        var countryDataSetup = "<tr id='underTable' class='rowColorChange'><td class='countryButton' style='text-align:left;cursor:pointer;' onclick='checkCountry(this.innerText)'>" + countryData[i].country  + "</td><td style='color:rgb(0, 100, 200)'>" + numberWithCommas(countryData[i].cases) + "</td><td style='color:red'>" + numberWithCommas(countryData[i].deaths) + "</td><td style='color:green;'>" + numberWithCommas(countryData[i].recovered) + "</td><td style='color:orange;'>" + numberWithCommas(countryData[i].critical) + "</td><td style='color:#fada5e;'>" + numberWithCommas(countryData[i].active)    + "</td></tr>"
         document.getElementById('table').innerHTML += countryDataSetup
-        if (i % 2 == 0){ // if even
-            document.getElementsByClassName('rowColorChange')[i].style.backgroundColor = "#eee"
-        }
     }
 }
 function checkCountry(country, statesTableHeader, countryData){
@@ -79,7 +76,7 @@ function getWorldData(){
     $.get(worldURL, function(worldData){
         var updatedAgo =  timeDiffCalc(new Date(), new Date(worldData.updated));
         document.getElementById('updatedAgo').innerHTML = "Updated "  + updatedAgo + " ago"
-        document.getElementById('worldData').innerHTML += "<td style='text-align:left;'> WORLD </td><td style='color:blue'>" + numberWithCommas(worldData.cases) + "</td><td style='color:red'>" + numberWithCommas(worldData.deaths) + "</td><td style='color:green;'>" + numberWithCommas(worldData.recovered) + "</td><td style='color:orange;'>" + numberWithCommas(worldData.critical) + "</td><td style='color:#fada5e;'>" + numberWithCommas(worldData.active) + "</td>"
+        document.getElementById('worldData').innerHTML += "<td style='text-align:left;'> WORLD </td><td style='color:rgb(0, 100, 200)'>" + numberWithCommas(worldData.cases) + "</td><td style='color:red'>" + numberWithCommas(worldData.deaths) + "</td><td style='color:green;'>" + numberWithCommas(worldData.recovered) + "</td><td style='color:orange;'>" + numberWithCommas(worldData.critical) + "</td><td style='color:#fada5e;'>" + numberWithCommas(worldData.active) + "</td>"
         document.getElementById('totalCases').innerText = numberWithCommas(worldData.cases)
         document.getElementById('totalDeaths').innerText = numberWithCommas(worldData.deaths)
         document.getElementById('totalRecovered').innerText = numberWithCommas(worldData.recovered)

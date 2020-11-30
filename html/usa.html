@@ -25,21 +25,39 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="main-navbar">
-        <a href="../index.html"><button id='recording' class='recording'></button> TRACORONA.LIVE</a> 
-        <a href="../html/vaccines.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a> 
-        <a href="../html/maps.html"><i class="fas fa-fw fa-map-marked-alt"></i> Maps</a> 
-        <a href="../html/charts.html" onclick='goToCharts()'><i class="fas fa-fw fa-chart-line"></i> Charts</a>
-        <a>
-          <div id='loadingDiv' class='hide'>
-                    <div id='loader' class='loader'></div>
-          </div>
-        </a>
+
+
+
+
+<div>
+  <div class='header'>
+      <div class='header-top'>
+          <ul>
+        <li class='discountHeader'><a id='updatedAgo' style='color:black;' href='https://www.instagram.com/iniezdotcom/' class='last-day'>FOLLOW US ON INSTAGRAM TO GET WEEKLY DISCOUNTS</a></li>
+          </ul>
       </div>
+              <div id='top-top-header'>
+                     
+                      <div>
+                              <ul>
+                                <li><a href="./html/vaccines.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a></li>
+                                <li><a href="./html/maps.html"><i class="fas fa-fw fa-map-marked-alt"></i> Maps</a></li> 
+                                <li><a href="./html/charts.html" window.href.onclick='goToCharts()'><i class="fas fa-fw fa-chart-line"></i> Charts</a></li>
+                                <div id='loadingDiv' class='hide'>
+                                  <div id='loader' class='loader'></div>
+                                </div>
+                              </ul>
+                      </div>
+              </div>
+  </div>
+</div>
+
       <div STYLE='text-align: center;' class="mb-5">
-        <h1 id='countryID'></h1>
+        <h1></h1>
         <h5 id='population'></h5>
       </div>
+
+
     <div class='chartDiv' style='margin: 0 auto; display:block'> 
 <canvas id="myChart"></canvas>
 </div>
@@ -52,7 +70,6 @@
 <footer style='background-color: black;margin-top:30px;'> 
   <div  class="p-3 d-{block} m-auto" id="footer-container">
           <div class="container">
-              
                   <div class="row">
                       
                                 <div class="col-lg-6 col-lg-8 text-left">

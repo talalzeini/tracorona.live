@@ -88,12 +88,16 @@ var myChart = new Chart(ctx, {
         },
         
 
-},    
+    
         scales: {
             yAxes: [{
-                
+                gridLines: {
+                    display: true,
+                    color: "rgba(255,255,255,0.2)"
+                  },
                 ticks: {
                     min:0,
+                    fontColor: "white",
                     callback: function(value, index, values) {
                             if(parseInt(value) >= 1000){
                                return '' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -103,10 +107,21 @@ var myChart = new Chart(ctx, {
                        } 
         }
             }],
+            xAxes:[{
+                gridLines: {
+                    display: true,
+                    color: "rgba(255,255,255,0.2)"
+                  },ticks: {
+                    min:0,
+                    fontColor: "rgba(255,255,255,0.5)",
+                  }
+             } ]
+            
            
         
 
         }
+    }
    
 });
 })

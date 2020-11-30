@@ -1,59 +1,378 @@
-
-.main-navbar {
-  width:100vw;
-    background-color: black;
-    overflow: auto;
-    margin-bottom: 50px;
-  }
-  
-  .main-navbar a {
-    float: left;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 17px;
-    color:white;
-    transition:0.25s;
-  }
-  .main-navbar a:hover {
-    color:rgb(220, 220, 220);
-    transition:0.25s;
-  }
-  
-  @media screen and (max-width: 500px) {
-  
-    .main-navbar a {
-      float: none;
-      display: block;
-    }
-  }
-
-  .recording{
-    width: 12px;
-	height: 12px;
-    font-size: 0;
-    margin-bottom: 3px;
-    margin-right: 5px;
-	background-color: red;
-    border: 0;
-	border-radius: 50%;
-	outline: none;
-	animation-name: pulse;
-	animation-duration: 1.5s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
+body{
+  margin:0;
+  padding:0;
+  font-size:1rem;
+  font-weight:400;
+  color:#777;
+  line-height:1.7;
+}
+*{
+  outline:none;
+  box-sizing: border-box;
+}
+*:not(.slick-track):not(.slick-list){
+  transition:0.4s;
+}
+.container{
+  max-width: 1140px;
+  margin:0 auto;
+  padding: 0 20px;
+}
+.flex{
+  display:flex;
+  justify-content:space-between;
 }
 
-.loader{
-    content: '';
-    box-sizing: border-box;
-    position: relative;
-    width: 20px;
-    height: 20px;
-    margin-top:2px;
-    display:block;
-    border-radius: 50%;
-    border: 3px solid #ccc;
-    border-top-color: white; 
-    /* white or black both work fine */
-    animation: loading 0.7s linear infinite;
+
+#header-hero-container{
+  min-height:600px;
+  height:calc(100vh);
+  position:relative; 
+}
+header{
+  background:linear-gradient(45deg,#EFEFBB, #faaca8);
+  padding: 0.85rem 0;
+  border-bottom:5px solid #1ab2ff;
+  position: fixed;
+  width: 100%;
+  z-index:4;
+}
+header ul{
+  list-style-type:none;
+}
+header ul li{
+  display:inline-block;
+  margin: 0 7px; 
+}
+header ul li a{
+  border: 2px solid #1ab2ff;
+  padding:5px 15px;
+  color:#1ab2ff;
+  font-size:16px;
+  text-decoration:none;
+}
+header ul.is-sticky li a {
+  color: black;
+}
+header ul li a:hover,header ul li a.active{
+ color:white; 
+ background-color: #1ab2ff;
+}
+header ul.is-sticky li a:hover, header ul.is-sticky li a.active{
+  color:  #1ab2ff;
+}
+#hero {
+  background:linear-gradient(45deg,#EFEFBB, #faaca8);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+#hero .hero-text{
+
+  top:38%;
+  margin:-75px auto 0;
+  left:0;
+  right:0;
+  color:black;
+  text-align:center;
+  width:500px;
+}
+#hero .hero-text p{
+ line-height: 1.5em;
+ font-weight: 300;
+ font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+  h1 {
+      font-size: 2rem;
   }
+  #hero .hero-text {
+      width: 400px;
+  }
+}
+
+@media (max-width: 500px) {
+  #hero .hero-text {
+      width: 330px;
+  }
+
+}
+@media (max-width: 400px) {
+#hero .hero-text {
+   max-width: 275px;
+   width: 100%;
+}
+
+}
+
+.header {
+  display:grid;
+  grid-template-columns: 1fr;
+  background-color: black;
+  height: 3.75em;
+  width: 100%;
+  font-size: 15px;
+  color: black;
+  text-align:center;
+  align-items:center;
+
+}
+
+
+@keyframes colorchange
+{
+  0%   {background: red; color: white;}
+  20%  {background: orange; color: white;}
+  40%  {background: yellow; color:black}
+  60% {background: yellowgreen;color:black}
+  75%     {background: green;  color: white;}
+  90%     {background: cyan; color:black}
+  100%     {background: blue; color: white;}
+}
+
+@-webkit-keyframes colorchange 
+{
+  0%   {background: red; color: white;}
+  20%  {background: orange; color: white;}
+  40%  {background: yellow; color:black}
+  60% {background: yellowgreen;color:black}
+  75%     {background: green;  color: white;}
+  90%     {background: cyan; color:black}
+  100%     {background: blue; color: white;}
+}
+.header-top{
+  display:grid;
+  animation: colorchange 100s linear 1s infinite; 
+  -webkit-animation: colorchange 100s linear 0s infinite alternate;
+  height: 2.75em;
+  width: 100%;
+  font-size: 15px;
+  text-align:center;
+  align-items:center;
+}
+.discountHeader{
+
+  font-size:12px;
+  font-weight: 500;
+  width:20%;
+}
+.mainSpan{
+  display:block;
+  margin: 0 auto; 
+  text-align: center;
+  margin-top: 175px;
+}
+.mainHeaderTitle{
+  font-size:40px;
+  font-weight:800;
+  text-align: center;
+}
+.secondMainHeader{
+  font-size:18px;
+  font-weight:800;
+  color:black;
+  text-align: center;
+}
+#header-image{
+  background-image: url('../images/logos/white-logo.png') ;
+  border-radius:23px;
+  margin-top: 100px; 
+  text-align:center;
+  z-index:2;
+  width:125px;
+}
+@media only screen and (min-height:860px){
+  #header-image{
+      background-image: url('../images/logos/white-logo.png') ;
+      border-radius:23px;
+      text-align:center;
+      z-index:2;
+      width:125px;
+  }
+}
+.gender-choice{
+  display:inline-block;
+}
+.shopGuysMain, .shopGirlsMain{
+  background-color: white;
+  color:black;
+  padding:10px 25px;
+  font-size:12px;
+  border-radius:5px;
+  width:200px;
+  border:2px solid black;
+}
+.shopGuysMain:hover, .shopGirlsMain:hover{
+  background-color:#eeeeee;
+}
+.shopGuysMain{
+  margin-right: 10px;
+}
+.shopGirlsMain{
+  margin-left: 10px;
+}
+
+
+
+@media only screen and (max-width:980px){
+  .discountHeader{
+      font-size:9px;
+      width:100%;
+  }
+  .mainSpan{
+      margin-top: 105px;
+  }
+  .mainHeaderTitle{
+      font-size:25px;
+  }
+  .secondMainHeader{
+      font-size:13px;
+  }
+  #header-image{
+      border-radius:15px;
+      width:75px;
+  }
+  .gender-choice{
+      display:block;
+      margin:0 auto;
+  }
+  .shopGirlsMain, .shopGuysMain{
+      margin-left: 0px;
+      margin-bottom:10px;
+      margin-right: 0px;
+  }
+}
+#top-top-header{
+  background-color:black; display:grid;
+  grid-template-columns: 1fr;
+  background-color: black;
+  height: 3.75em;
+  width: 100%;
+  font-size: 15px;
+  color: black;
+  text-align:center;
+  align-items:center;
+  
+}
+.last-day:hover{
+  text-decoration-line: underline !important;
+  cursor:pointer;
+}
+.logo-header{
+  display:grid;
+  grid-template-columns: 1fr;
+  background-color: black;
+  height: 3.75em;
+  width: 20%;
+  font-size: 15px;
+  color: #FAFAFA;
+  text-align:center;
+  align-items:center;
+
+}
+ul {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+li {
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  display:inline;
+}
+li a {
+  color:white;
+}
+li a:hover {
+  text-decoration: none;
+  color: #eeeeee;
+}
+@media (max-width: 767px) {
+  li {
+      padding-right: 1em;
+      padding-left: 1em;
+      display:inline;
+    }
+}
+@media (max-width: 374px) {
+  .logo-header{
+      display: none;
+  }
+}
+.subscribe {
+  background-color: white;
+  color:black;
+  padding:10px 25px;
+  font-size:12px;
+  border-radius:5px;
+  width:200px;
+  border:2px solid black;
+}
+.subscribe:hover{
+  background-color:#f6f6f8;
+}
+.emailInput{
+  display: inline;
+  background-color: white;
+  color:black;
+  text-indent: 10px;
+  height:2.75rem;
+  font-size:12px;
+  border-radius:5px;
+  width:200px;
+  border:2px solid black;
+}
+.emailInput:hover{
+  background-color: #f6f6f8;
+}
+.subscribeTitle{
+  color:black; 
+  font-size:20px; 
+  font-weight: 800;
+  display:block;
+  margin:0px auto;
+}
+.justForLabel{
+  color:black; 
+  font-size:20px; 
+  font-weight: 800;
+  width:50%;
+  display:block;
+  margin-bottom: 100px;
+  margin:0px auto;
+}
+.subscribeNow{
+  font-size:18px;
+  text-align: center;
+  width:32%;
+  margin:0 auto;
+  display:block;
+}
+@media only screen and (max-width:980px){
+  .justForLabel{
+  color:black; 
+  font-size:15px; 
+  font-weight: 800;
+  width:75%;
+  margin:0 auto;
+  display:block; 
+  margin-bottom: 100px;
+  }
+  .title-box h2{
+      font-size:25px; 
+  }
+  .subscribeNow{
+      font-size:16px;
+      text-align: center;
+      width:75%;
+  }
+}
+@media only screen and (max-width:350px){
+  .discountHeader{
+      font-size:8px;
+      width:100%;
+  }
+}
