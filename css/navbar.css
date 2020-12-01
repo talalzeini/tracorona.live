@@ -125,22 +125,23 @@ header ul.is-sticky li a:hover, header ul.is-sticky li a.active{
 {
   0%   {background: red; color: white;}
   20%  {background: orange; color: white;}
-  40%  {background: yellow; color:black}
-  60% {background: yellowgreen;color:black}
+  40%  {background: yellow; color:white}
+  60% {background: yellowgreen;color:white}
   75%     {background: green;  color: white;}
-  90%     {background: cyan; color:black}
-  100%     {background: blue; color: white;}
+  90%     {background: cyan; color:white}
+  100%     {background: #2f2f2f; color: white;}
+
+  
 }
 
 @-webkit-keyframes colorchange 
 {
-  0%   {background: red; color: white;}
-  20%  {background: orange; color: white;}
-  40%  {background: yellow; color:black}
-  60% {background: yellowgreen;color:black}
-  75%     {background: green;  color: white;}
-  90%     {background: cyan; color:black}
-  100%     {background: blue; color: white;}
+  0%   {background:rgb(255, 75, 75, 0.75); color: white;}
+  20%  {background: rgb(255, 175, 50, 0.75); color: white;}
+  40%  {background: rgb(255, 225, 25, 0.75); color:white;}
+  75%     {background: rgb(0, 200, 100, 0.75);  color: white;}
+  90%     {background: rgb(75, 230, 230, 0.75); color:white}
+  100%     {background: rgb(0, 100, 200, 0.75); color: white;}
 }
 .header-top{
   display:grid;

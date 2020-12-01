@@ -7,9 +7,6 @@ $(document).ready(function(){
 })
 
 
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 function getChart(){
 if(localStorage.length !== 0){ // if local storage is not empty
     console.log("LOCAL STORAGE IS NOT EMPTY")
@@ -17,7 +14,7 @@ if(localStorage.length !== 0){ // if local storage is not empty
     var countryChosen = JSON.parse(countryRetrieved);
     document.getElementById('countryID').innerHTML = countryChosen.country
     document.getElementById('pageTitle').innerHTML = countryChosen.country
-    document.getElementById('population').innerHTML = "POPULATION : " + numberWithCommas(countryChosen.population)
+    document.getElementById('population').innerHTML = "POPULATION : " + (countryChosen.population)
     runIt(countryChosen)
 }else{
     console.log("LOCAL STORAGE IS EMPTY")
@@ -25,7 +22,7 @@ if(localStorage.length !== 0){ // if local storage is not empty
     document.getElementById('countryID').innerHTML = "World"
     document.getElementById('pageTitle').innerHTML = "World"
     $.get(URL, function(chosenData){
-        document.getElementById('population').innerHTML = "POPULATION : " + numberWithCommas(chosenData.population)
+        document.getElementById('population').innerHTML = "POPULATION : " + (chosenData.population)
         runIt(chosenData)
     })
 }

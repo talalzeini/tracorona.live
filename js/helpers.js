@@ -20,8 +20,8 @@ function sortByCases(numberOfCountries, countryData){
     }
 }
 function displayData(numberOfCountries, countryData){
-    for(let i = 0; i < numberOfCountries-210; i++){
-        var countryDataSetup = "<tr id='underTable' class='rowColorChange'><td class='countryButton' style='text-align:left;cursor:pointer;' onclick='checkCountry(this.innerText)'>" + countryData[i].country  + "</td><td style='color:rgb(0, 100, 200)'>" + numberWithCommas(countryData[i].cases) + "</td><td style='color:red'>" + numberWithCommas(countryData[i].deaths) + "</td><td style='color:green;'>" + numberWithCommas(countryData[i].recovered) + "</td><td style='color:orange;'>" + numberWithCommas(countryData[i].critical) + "</td><td style='color:#fada5e;'>" + numberWithCommas(countryData[i].active)    + "</td></tr>"
+    for(let i = 0; i < numberOfCountries; i++){                                                                            //cursor:pointer; onclick checkCountry(this.innerText)
+        var countryDataSetup = "<tr id='underTable' class='rowColorChange'><td class='countryButton' style='text-align:left;'>" + countryData[i].country  + "</td><td style='color:rgb(0, 100, 200)'>" + numberWithCommas(countryData[i].cases) + "</td><td style='color:red'>" + numberWithCommas(countryData[i].deaths) + "</td><td style='color:green;'>" + numberWithCommas(countryData[i].recovered) + "</td><td style='color:orange;'>" + numberWithCommas(countryData[i].critical) + "</td><td style='color:#fada5e;'>" + numberWithCommas(countryData[i].active)    + "</td></tr>"
         document.getElementById('table').innerHTML += countryDataSetup
     }
 }
@@ -31,7 +31,7 @@ function checkCountry(country, statesTableHeader, countryData){
         setTimeout(function() { document.getElementById('table').innerHTML = "" }, 1000);
         setTimeout(function() { $('#loadingDiv').removeClass("hide"); }, 1000);
         $('#loadingDiv').addClass("fadeIn");
-        var statesTableHeader = "<tr style='font-size:12px;'><th>STATE</th><th>CASES <i style='font-size:13px;' id='casesDown' class='fas fa-arrow-alt-circle-down'></i></th><th>DEATHS <i style='font-size:13px;' id='casesDown' class='fas fa-arrow-alt-circle-down'></i></th><th>RECOVERED <i style='font-size:13px;' id='casesDown' class='fas fa-arrow-alt-circle-down'></i></th><th>ACTIVE <i style='font-size:13px;' id='casesDown' class='fas fa-arrow-alt-circle-down'></i></th></tr>"
+        var statesTableHeader = "<tr><th>STATE</th><th>CASES</th><th>DEATHS</th><th>RECOVERED</th><th>ACTIVE</th></tr>"
         setTimeout(function() { getStatesData(statesTableHeader); }, 3000);
     }else{
         $.get(countriesURL +  "/" + country, function(countryData){
