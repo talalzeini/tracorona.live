@@ -7,7 +7,6 @@ var worldURL = "https://corona.lmao.ninja/v3/covid-19/all"
 var unitedStatesURL = 'https://corona.lmao.ninja/v2/states'
 
 
-
 function sortByCases(numberOfCountries, countryData){
         for (let i = 0; i < numberOfCountries; i++) {
             for (let j = 1; j < numberOfCountries-1; j++) {
