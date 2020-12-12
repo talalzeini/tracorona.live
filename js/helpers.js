@@ -8,8 +8,8 @@ var unitedStatesURL = 'https://corona.lmao.ninja/v2/states'
 
 
 function sortByCases(numberOfCountries, countryData){
-        for (let i = 0; i < numberOfCountries; i++) {
-            for (let j = 1; j < numberOfCountries-1; j++) {
+        for (let i = 0; i <= numberOfCountries; i++) {
+            for (let j = 1; j <= numberOfCountries-1; j++) {
                 if (countryData[j].cases > countryData[j - 1].cases) {
                     let tmp = countryData[j - 1];
                     countryData[j - 1] = countryData[j];
