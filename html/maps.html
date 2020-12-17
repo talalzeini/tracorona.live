@@ -41,26 +41,52 @@
                     <div id='top-top-header' style='position:fixed;z-index: 5;'>
                            
                             <div class='mt-3 float-left'>
-                                <ul>
-                                    <li><a href="../html/vaccines.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a></li>
-                                    <li><a href="../html/maps.html"><i class="fas fa-fw fa-map-marked-alt"></i> Maps</a></li> 
-                                   
-                                </ul>
+                                
                             </div>
                             <div>
-                                    
-                                    <ul>  <li><a id='country' style='color:white;'></a></li>
-
-                                      <li><a id='cases' style='color:rgb(0, 100, 200);' ></a></li>
+                                    <ul style='background-color:black; padding-bottom:5px;'>  
+                                       <li><a id='country' style='color:white;'></a></li>
+                                       <br>
+                                      <li><a id='cases' style='color:rgb(0, 100, 200);'></a></li>
                                       <li><a id='die' style='color:rgb(255, 75, 75);'></a></li> 
                                       <li><a id='recover' style='color: rgb(0, 200, 100)'></a></li>
                                     </ul>
                             </div>
                     </div>
         </div>
-      </div>s
-      
-<div id="vmap" class='mt-5' style="width: 100vw; height: 100vh; cursor:pointer;"></div>
+      </div>
+
+<div style='overflow: scroll;'> 
+<div id="vmap" class='mainMap' class='mt-5'></div>
+</div>
+<style>
+    .mainMap{
+        width: 100vw; 
+        height: 100vh; 
+        cursor:pointer;
+    }
+    @media screen and (max-width:1200px){
+        .mainMap{
+            width: 100vw; 
+            cursor:pointer;
+        }
+    }
+    @media screen and (max-width:900px){
+        .mainMap{
+            width: 200vw; 
+            cursor:pointer;
+        }
+    }
+    @media screen and (max-width:600px){
+        .mainMap{
+            width: 350vw; 
+            cursor:pointer;
+        }
+    }
+</style>
+
+
+
 
 <!--- Footer Starts Here -->
 <footer style='background-color: black;margin-top:30px;'> 
@@ -132,11 +158,15 @@ var majorData = []
 function getCountry(){
 $.get(countriesURL, function(countryData){
              majorData = countryData
+             console.log(countryData)
              var numberOfCountries = countryData.Countries.length
              for(let i = 0; i <= numberOfCountries-1; i++){
                 countrySelected.push(countryData.Countries[i].CountryCode)
              }
-             console.log(countrySelected)
+             document.getElementById('country').innerText = ("World")
+            document.getElementById('cases').innerText = numberWithCommas(majorData.Global.TotalConfirmed)
+            document.getElementById('die').innerText = numberWithCommas(majorData.Global.TotalDeaths)
+            document.getElementById('recover').innerText = numberWithCommas(majorData.Global.TotalRecovered)
          }) 
              
 jQuery('#vmap').vectorMap({
@@ -153,7 +183,6 @@ jQuery('#vmap').vectorMap({
     scaleColors: ['white', 'white'],
     onRegionClick: function(element, code, region)
     {
-
      if(countrySelected.includes(code.toUpperCase())){
          for(let t = 0; t <= majorData.Countries.length-1; t++){
             if(code.toUpperCase() == majorData.Countries[t].CountryCode){
@@ -164,11 +193,8 @@ jQuery('#vmap').vectorMap({
             }
          }
      }else{
-         console.log("NOT WORKING")
+        
      }
-            
- 
-      
     }
 });
  }

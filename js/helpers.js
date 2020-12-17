@@ -18,6 +18,7 @@ function sortByCases(numberOfCountries, countryData){
             }
     }
 }
+
 function displayData(numberOfCountries, countryData){
     for(let i = 0; i < numberOfCountries; i++){                                                                            //cursor:pointer; onclick checkCountry(this.innerText)
         var countryDataSetup = "<tr id='underTable' class='rowColorChange'><td class='countryButton' style='text-align:left;'>" + countryData[i].country  + "</td><td style='color:rgb(0, 100, 200)'>" + numberWithCommas(countryData[i].cases) + "</td><td style='color:red'>" + numberWithCommas(countryData[i].deaths) + "</td><td style='color:green;'>" + numberWithCommas(countryData[i].recovered) + "</td><td style='color:orange;'>" + numberWithCommas(countryData[i].critical) + "</td><td style='color:#fada5e;'>" + numberWithCommas(countryData[i].active)    + "</td></tr>"
