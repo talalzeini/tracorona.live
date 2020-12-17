@@ -20,12 +20,14 @@ function sortByCases(numberOfCountries, countryData){
 }
 
 function displayData(numberOfCountries, countryData){
-    for(let i = 0; i < numberOfCountries; i++){                                                                            //cursor:pointer; onclick checkCountry(this.innerText)
-        var countryDataSetup = "<tr id='underTable' class='rowColorChange'><td class='countryButton' style='text-align:left;'>" + countryData[i].country  + "</td><td style='color:rgb(0, 100, 200)'>" + numberWithCommas(countryData[i].cases) + "</td><td style='color:red'>" + numberWithCommas(countryData[i].deaths) + "</td><td style='color:green;'>" + numberWithCommas(countryData[i].recovered) + "</td><td style='color:orange;'>" + numberWithCommas(countryData[i].critical) + "</td><td style='color:#fada5e;'>" + numberWithCommas(countryData[i].active)    + "</td></tr>"
+    for(let i = 0; i < numberOfCountries; i++){                                                                           
+        var countryDataSetup = "<tr id='underTable' class='rowColorChange'><td onclick='checkCountry(this.innerText)' class='countryButton' style='text-align:left;cursor:pointer;'>" + countryData[i].country  + "</td><td style='color:rgb(0, 100, 200)'>" + numberWithCommas(countryData[i].cases) + "</td><td style='color:red'>" + numberWithCommas(countryData[i].deaths) + "</td><td style='color:green;'>" + numberWithCommas(countryData[i].recovered) + "</td><td style='color:orange;'>" + numberWithCommas(countryData[i].critical) + "</td><td style='color:#fada5e;'>" + numberWithCommas(countryData[i].active)    + "</td></tr>"
         document.getElementById('table').innerHTML += countryDataSetup
     }
 }
+
 function checkCountry(country, statesTableHeader, countryData){
+    console.log('11')
     if(country == "USA"){
         $('#table').fadeOut(1000);
         setTimeout(function() { document.getElementById('table').innerHTML = "" }, 1000);
@@ -34,31 +36,34 @@ function checkCountry(country, statesTableHeader, countryData){
         var statesTableHeader = "<tr><th>STATE</th><th>CASES</th><th>DEATHS</th><th>RECOVERED</th><th>ACTIVE</th></tr>"
         setTimeout(function() { getStatesData(statesTableHeader); }, 3000);
     }else{
+        console.log('1')
         $.get(countriesURL +  "/" + country, function(countryData){
+            console.log('2')
             console.log(countryData)
             localStorage.removeItem("countryData", JSON.stringify(countryData));
             localStorage.setItem("countryData", JSON.stringify(countryData));
             window.location = "../html/charts.html"
         })
     }
-}
+  }
+
 function timeDiffCalc(dateFuture, dateNow) {
     let diffInMilliSeconds = Math.abs(dateFuture - dateNow) / 1000;
 
     // calculate days
     const days = Math.floor(diffInMilliSeconds / 86400);
     diffInMilliSeconds -= days * 86400;
-    console.log('calculated days', days);
+    // console.log('calculated days', days);
 
     // calculate hours
     const hours = Math.floor(diffInMilliSeconds / 3600) % 24;
     diffInMilliSeconds -= hours * 3600;
-    console.log('calculated hours', hours);
+    // console.log('calculated hours', hours);
 
     // calculate minutes
     const minutes = Math.floor(diffInMilliSeconds / 60) % 60;
     diffInMilliSeconds -= minutes * 60;
-    console.log('minutes', minutes);
+    // console.log('minutes', minutes);
 
     let difference = '';
     if (days > 0) {

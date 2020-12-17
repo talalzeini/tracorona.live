@@ -68,9 +68,9 @@ Corona Tracker -->
                      
                       <div>
                               <ul>
-                                <li><a href="./html/error.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a></li>
+                                <li><a href="./html/charts.html" window.href.onclick='goToCharts()'><i class="fas fa-fw fa-chart-line"></i> Charts</a></li>
+                                <!-- <li><a href="./html/error.html"><i class="fas fa-fw fa-syringe"></i> Vaccine</a></li> -->
                                 <li><a href="./html/maps.html"><i class="fas fa-fw fa-map-marked-alt"></i> Maps</a></li> 
-                                <!-- <li><a href="./html/error.html" window.href.onclick='goToCharts()'><i class="fas fa-fw fa-chart-line"></i> Charts</a></li> -->
                                 <div id='loadingDiv' class='hide'>
                                   <div id='loader' class='loader'></div>
                                 </div>
@@ -193,9 +193,11 @@ Corona Tracker -->
                                 <div class="col-sm-3 col-lg-2">
                                          <h5 style="color:white">Useful Links</h5>
                                          <p id="footer-stuff">
-                                          <a href="./html/error.html">About</a>
-                                          <a href="./html/error.html"> Vaccine </a>
-                                          <a href="./html/error.html"> Charts </a> 
+                                          <a href="../index.html">Home</a>
+                                          <!-- <a href="./error.html">About</a>
+                                          <a href="./error.html"> Vaccine </a> -->
+                                          <a href="./maps.html"> Maps </a> 
+                                          <a href="./charts.html"> Charts </a> 
                                     </p>
                                        
                                 </div>
@@ -240,6 +242,7 @@ Corona Tracker -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
 function goToCharts(){
+  console.log('cleared')
   localStorage.clear()
 }
 
