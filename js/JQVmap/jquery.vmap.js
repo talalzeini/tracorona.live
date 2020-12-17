@@ -129,7 +129,11 @@ var JQVMap = function (params) {
   this.rootGroup = this.canvas.createGroup(true);
 
   this.index = JQVMap.mapIndex;
-  this.label = jQuery('<div/>').addClass('jqvmap-label').appendTo(jQuery('body')).hide();
+  
+
+  // edited by Talal El Zeini
+  this.label = jQuery('<div/>').removeClass('jqvmap-label')
+
 
   if (params.enableZoom) {
     jQuery('<div/>').addClass('jqvmap-zoomin').text('+').appendTo(params.container);

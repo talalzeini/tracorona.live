@@ -49,6 +49,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: datesList,
         datasets: [{
+            fontColor:"white",
             label:"Deaths",
             data: deathList,
             backgroundColor: [
@@ -110,10 +111,10 @@ var myChart = new Chart(ctx, {
             xAxes:[{
                 gridLines: {
                     display: true,
-                    color: "rgba(255,255,255,0.2)"
+                    color: "rgba(255,255,255,0.25)"
                   },ticks: {
                     min:0,
-                    fontColor: "rgba(255,255,255,0.5)",
+                    fontColor: "rgba(255,255,255,1)",
                   }
              } ]
             
