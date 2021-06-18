@@ -1,30 +1,27 @@
-
-
-.blue{
-    background-color: rgb(0, 100, 200);
+.blue {
+  background-color: rgb(0, 100, 200);
 }
-.red{
-    background-color: rgb(255, 75, 75)
+.red {
+  background-color: rgb(255, 75, 75);
 }
-.green{
-    background-color: rgb(0, 200, 100)
+.green {
+  background-color: rgb(0, 200, 100);
 }
-.gr{
-    color:rgb(0, 200, 100);
+.orange {
+  background-color: rgb(255, 175, 50);
 }
-
-.orange{
-    background-color: rgb(255, 175, 50);
+.yellow {
+  background-color: rgb(255, 225, 25);
 }
-.yellow{
-    background-color: rgb(255, 225, 25);
+.cyan {
+  background-color: rgb(75, 230, 230);
 }
-.cyan{
-    background-color: rgb(75, 230, 230);
+.white {
+  color: white;
 }
-.white{
-    color:white;
+.black {
+  color: black;
 }
-.black{
-    color:black;
+.gr {
+  color: rgb(0, 200, 100);
 }

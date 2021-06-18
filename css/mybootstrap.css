@@ -1,24 +1,17 @@
-
-.hide{
-    display:none;
+.hide {
+  display: none;
 }
-.white{
-    color:white;
+.center {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
-.black{
-    color:black;
+.mt-50 {
+  margin-top: 50px;
 }
-.center{
-    text-align: center;
-    display:block;
-    margin: 0 auto;
+.mt-100 {
+  margin-top: 100px;
 }
-.mt-50{
-    margin-top: 50px;
-}
-.mt-100{
-    margin-top: 100px;
-}
-.button-padding{
-    padding:5px 10px;
+.button-padding {
+  padding: 5px 10px;
 }
